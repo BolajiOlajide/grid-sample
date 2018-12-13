@@ -1,14 +1,78 @@
 .container {
   display: grid;
-  grid-template-areas: "search"
-                       "sections";
+  grid-template-areas: "search" "sections";
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
   margin: 0.5rem;
   row-gap: 0.5rem;
 }
-
 .search {
   grid-area: search;
   justify-self: center;
+}
+.sections {
+  grid-area: sections;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto auto;
+}
+.sections .section {
+  grid-column: span 12;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas: "title actions" "details details";
+}
+.sections .section .title {
+  grid-area: title;
+}
+.sections .section .actions {
+  grid-area: actions;
+  place-self: end;
+}
+.sections .section .details {
+  grid-area: details;
+  display: grid;
+  grid-template-columns: 50%;
+  grid-template-rows: repeat(3, auto);
+  justify-items: start;
+  row-gap: 0.5rem;
+}
+.sections .section .details > div {
+  padding: 0 2rem;
+}
+.sections .section .details > div > div {
+  padding: 0 2rem;
+}
+.sections .section .details > div .section-header {
+  padding: 0;
+}
+.company .name {
+  grid-area: 1 / span 1;
+}
+.company .location {
+  grid-area: 2 / span 0.5;
+}
+.company .technical_contact {
+  grid-row: 3;
+}
+.company .address {
+  grid-area: 1.5/span -1;
+}
+.company .legal_contact {
+  grid-row: 2;
+}
+.Spectrum .band {
+  grid-column: 1;
+  grid-row: 1;
+}
+.Spectrum .service {
+  grid-row: 2;
+}
+.Spectrum .modulation {
+  grid-row: 3;
+}
+.Spectrum .transPower {
+  grid-row: 4;
 }
